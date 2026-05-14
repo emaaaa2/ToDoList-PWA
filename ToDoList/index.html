@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Todo List</title>
+
+    <link rel="manifest" href="manifest_and_icons/manifest.json" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Todo List</h1>
+
+      <div class="form-box">
+        <label for="taskInput">Task:</label>
+        <input type="text" id="taskInput" placeholder="Task title" />
+
+        <div class="time-box">
+          <label for="hours">Time:</label>
+          <input type="number" id="hours" placeholder="HH" min="0" max="23" />
+          <input type="number" id="minutes" placeholder="MM" min="0" max="59" />
+        </div>
+
+        <div class="time-box">
+          <label for="days">Date:</label>
+          <input type="number" id="days" placeholder="DD" min="0" max="31" />
+          <input type="number" id="months" placeholder="MM" min="0" max="12" />
+          <input type="number" id="years" placeholder="YYYY" min="2023" />
+        </div>
+
+        <button id="addBtn">Add Task</button>
+      </div>
+
+      <ul id="todoList"></ul>
+    </div>
+
+    <script src="idb.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

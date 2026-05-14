@@ -1,0 +1,35 @@
+{
+  "theme_color": "#8936FF",
+  "background_color": "#2EC6FE",
+  "icons": [
+    {
+      "src": "/manifest_and_icons/icon512_maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/manifest_and_icons/icon512_maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/manifest_and_icons/icon512_maskable.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "landscape",
+  "display": "standalone",
+  "dir": "auto",
+  "lang": "en-US",
+  "name": "PWA task",
+  "short_name": "task pwa",
+  "start_url": "/index.html",
+  "scope": "/",
+  "description": "this is a task for day 1 PWA course ITI"
+}
+
