@@ -7,14 +7,20 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('notificationclick', event => {
-    const action = event.action;
     const notification = event.notification;
-    const taskId = notification.data.id; 
+    const action = event.action;
+    const taskId = notification.data.id;
 
     if (action === 'open') {
         event.waitUntil(
-            clients.matchAll({ type: 'window' }).then(windowClients => {
-                for (let client of windowClients) {
+            clients.matchAll({ type: 'window' }).then(clientsList => {
+                clientsList.forEach(client => {
+                    client.postMessage({
+                        type: 'MARK_DONE',
+                        id: taskId
+                    });
+                });
+                for (let client of clientsList) {
                     if (client.url.includes('index.html') && 'focus' in client) {
                         return client.focus();
                     }
@@ -22,19 +28,6 @@ self.addEventListener('notificationclick', event => {
                 if (clients.openWindow) return clients.openWindow('index.html');
             })
         );
-    } 
-    else if (action === 'close') {
-        event.waitUntil(
-            clients.matchAll().then(clients => {
-                clients.forEach(client => {
-                    client.postMessage({
-                        type: 'TASK_COMPLETED',
-                        id: taskId
-                    });
-                });
-            })
-        );
     }
-
     notification.close();
 });
